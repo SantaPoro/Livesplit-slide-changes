@@ -1,4 +1,4 @@
-# Livesplit syncer
+# LSSC (LiveSplit Slide Changer)
 
 This project will sync a livesplit timer to a website containing an image. This image will change every split so that you can keep relevant notes automatically on your computer / second monitor while speedrunning.
 

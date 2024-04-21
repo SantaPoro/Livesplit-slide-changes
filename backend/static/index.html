@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.12/dist/ext/ws.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div hx-ext="ws" ws-send ws-connect="/listen" hx-swap="innerHtml"></div>
+
+    <h1>not funny</h1>
+    <p>nåt funny</p>
+    <button hx-get="/boi" hx-swap="innerHtml">Click Me</button>
+
+    <div id="sse-data"></div>
+
+    <script>
+      const eventSource = new EventSource("http://localhost:6969/events");
+      eventSource.onmessage = function (event) {
+        const dataElement = document.getElementById("sse-data");
+        dataElement.innerHTML += event.data + "<br>";
+      };
+    </script>
+  </body>
+</html>
